@@ -4,6 +4,8 @@ import 'package:order_printer_management/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static String tag = 'login-page';
+
+  const LoginScreen({Key? key}) : super(key: key);
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -26,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
       autofocus: false,
       decoration: InputDecoration(
         hintText: 'Kullanıcı adı',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
         labelText: 'Kullanıcı adı giriniz...',
       ),
@@ -37,29 +39,29 @@ class _LoginScreenState extends State<LoginScreen> {
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Şifre',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
         labelText: 'Şifre giriniz...',
       ),
     );
 
     final loginButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-          Get.to(HomeScreen());
+          Get.to(const HomeScreen());
         },
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         color: Colors.lightBlueAccent,
-        child: Text('Giriş Yap', style: TextStyle(color: Colors.white)),
+        child: const Text('Giriş Yap', style: TextStyle(color: Colors.white)),
       ),
     );
 
     final forgotLabel = FlatButton(
-      child: Text(
+      child: const Text(
         'Şifremi unuttum?',
         style: TextStyle(color: Colors.black54),
       ),
@@ -72,14 +74,14 @@ class _LoginScreenState extends State<LoginScreen> {
         body: Center(
           child: ListView(
             shrinkWrap: true,
-            padding: EdgeInsets.only(left: 24.0, right: 24.0),
+            padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             children: <Widget>[
               logo,
-              SizedBox(height: 48.0),
+              const SizedBox(height: 48.0),
               email,
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               password,
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               loginButton,
               forgotLabel
             ],
