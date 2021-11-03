@@ -70,8 +70,8 @@ class CreateReceiptScreen extends StatelessWidget {
   Container buildPartyNumberTextField() {
     return Container(
       margin: const EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 30),
-      child: TextField(
-        decoration: const InputDecoration(hintText: "PartiNumarası"),
+      child: const TextField(
+        decoration: InputDecoration(hintText: "PartiNumarası"),
       ),
     );
   }

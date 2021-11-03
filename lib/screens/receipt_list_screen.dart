@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:order_printer_management/helper/toastr.dart';
 
 class ReceiptListScreen extends StatefulWidget {
   const ReceiptListScreen({Key? key}) : super(key: key);
@@ -35,10 +38,15 @@ class _ReceiptListScreenState extends State<ReceiptListScreen> {
               DataColumn(label: Text("Tarih")),
               DataColumn(label: Text("Hacim\n(Dm³)")),
               DataColumn(label: Text("Prizma\n(%)")),
-            ], rows: const [
-              DataRow(cells: [
+            ], rows: [
+              DataRow(selected: true, cells: [
                 DataCell(Text("860")),
-                DataCell(Text("Sahada")),
+                DataCell(
+                  Text("Sahada"),
+                  onLongPress: () {
+                    Toastr.buildToast("test", Colors.green);
+                  },
+                ),
                 DataCell(Text("6")),
                 DataCell(Text("15.5")),
                 DataCell(Text("21.10.2021")),
@@ -54,7 +62,17 @@ class _ReceiptListScreenState extends State<ReceiptListScreen> {
 
   AppBar buildAppBar() {
     return AppBar(
-      actions: [IconButton(onPressed: () {}, icon: Icon(Icons.menu))],
+      actions: [
+        PopupMenuButton(
+            icon: const Icon(Icons.menu_outlined),
+            itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                  PopupMenuItem(
+                    height: 50,
+                    child: const Text('Test '),
+                    onTap: () {},
+                  ),
+                ])
+      ],
       title: const Text("Fiş Listesi"),
     );
   }
