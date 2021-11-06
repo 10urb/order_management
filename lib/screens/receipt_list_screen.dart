@@ -11,6 +11,8 @@ class ReceiptListScreen extends StatefulWidget {
 }
 
 class _ReceiptListScreenState extends State<ReceiptListScreen> {
+  bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,30 +32,39 @@ class _ReceiptListScreenState extends State<ReceiptListScreen> {
           scrollDirection: Axis.vertical,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: DataTable(showCheckboxColumn: true, columns: const [
-              DataColumn(label: Text("Parti\nNo")),
-              DataColumn(label: Text("Durumu")),
-              DataColumn(label: Text("Sınıf")),
-              DataColumn(label: Text("Kalınlık\n(Cm)")),
-              DataColumn(label: Text("Tarih")),
-              DataColumn(label: Text("Hacim\n(Dm³)")),
-              DataColumn(label: Text("Prizma\n(%)")),
-            ], rows: [
-              DataRow(selected: true, cells: [
-                DataCell(Text("860")),
-                DataCell(
-                  Text("Sahada"),
-                  onLongPress: () {
-                    Toastr.buildToast("test", Colors.green);
-                  },
-                ),
-                DataCell(Text("6")),
-                DataCell(Text("15.5")),
-                DataCell(Text("21.10.2021")),
-                DataCell(Text("2.413")),
-                DataCell(Text("100")),
-              ]),
-            ]),
+            child: DataTable(
+                showCheckboxColumn: true,
+                checkboxHorizontalMargin: 10,
+                columns: const [
+                  // DataColumn(label: Text("Seçim\nAlanı")),
+                  DataColumn(label: Text("Parti\nNo")),
+                  DataColumn(label: Text("Durumu")),
+                  DataColumn(label: Text("Sınıf")),
+                  DataColumn(label: Text("Kalınlık\n(Cm)")),
+                  DataColumn(label: Text("Tarih")),
+                  DataColumn(label: Text("Hacim\n(Dm³)")),
+                  DataColumn(label: Text("Prizma\n(%)")),
+                ],
+                rows: [
+                  DataRow(selected: true, cells: [
+                    // DataCell(Checkbox(
+                    //   value: isSelected,
+                    //   onChanged: (value) {},
+                    // )),
+                    DataCell(Text("860")),
+                    DataCell(
+                      Text("Sahada"),
+                      onLongPress: () {
+                        Toastr.buildToast("test", Colors.green);
+                      },
+                    ),
+                    DataCell(Text("6")),
+                    DataCell(Text("15.5")),
+                    DataCell(Text("21.10.2021")),
+                    DataCell(Text("2.413")),
+                    DataCell(Text("100")),
+                  ]),
+                ]),
           ),
         ),
       ],

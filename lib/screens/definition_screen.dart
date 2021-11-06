@@ -13,6 +13,16 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
     return MaterialApp(
       home: Scaffold(
         appBar: buildAppBar(),
+        body: ListView(
+          children: [
+            ElevatedButton(
+                onPressed: () {}, child: const Text("Müşteri Ekleme")),
+            ElevatedButton(
+                onPressed: () {}, child: const Text("... Tanımlama")),
+            ElevatedButton(
+                onPressed: () {}, child: const Text("... Tanımlama")),
+          ],
+        ),
       ),
     );
   }

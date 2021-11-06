@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Firma Adı Gelebilir"),
+          title: const Text("Ana Menü"),
           centerTitle: true,
         ),
         drawer: Drawer(
@@ -41,6 +41,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {},
                 icon: const Icon(Icons.access_alarms_outlined),
                 label: const Text("Raporlar")),
+            ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.access_alarms_outlined),
+                label: const Text("Hammadde Girişi")),
+            ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.access_alarms_outlined),
+                label: const Text("Fabrika Stok")),
+            ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.access_alarms_outlined),
+                label: const Text("Dikili İşçilik")),
+            ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.access_alarms_outlined),
+                label: const Text("Orman Stok Kutur")),
+            ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.access_alarms_outlined),
+                label: const Text("Odur Ster Ölçü")),
+            ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.access_alarms_outlined),
+                label: const Text("OGM Stok Kontrol")),
             ElevatedButton.icon(
                 onPressed: () {},
                 icon: const Icon(Icons.kayaking),

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:order_printer_management/screens/home_screen.dart';
@@ -52,7 +54,8 @@ class _LoginScreenState extends State<LoginScreen> {
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-          Get.to(const HomeScreen());
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomeScreen()));
         },
         padding: const EdgeInsets.all(12),
         color: Colors.lightBlueAccent,
