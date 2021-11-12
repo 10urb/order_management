@@ -13,5 +13,19 @@ import 'package:order_printer_management/screens/receipt_list_screen.dart';
 import 'package:order_printer_management/screens/report_screen.dart';
 
 void main() {
-  runApp(const ReportScreen());
+  runApp(const HomeScreen());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      routes: {
+        "/": (BuildContext context) => const HomeScreen(),
+        "/createreceipt": (BuildContext context) => const CreateReceiptScreen(),
+      },
+    );
+  }
 }

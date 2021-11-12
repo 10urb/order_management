@@ -54,8 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()));
+          Navigator.pushNamed(context, "/");
         },
         padding: const EdgeInsets.all(12),
         color: Colors.lightBlueAccent,
