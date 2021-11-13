@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "909481915466",
+    "project_id": "orderandstockmanagement",
+    "storage_bucket": "orderandstockmanagement.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909481915466:android:6612630496c952ca32a2b3",
+        "android_client_info": {
+          "package_name": "com.example.order_printer_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909481915466-e3h9po88u0c3mu7gfdlbgj4ciqckel20.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH4aIrj6RFvnfXfwyUFJO8OGcRKoNwjTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909481915466-e3h9po88u0c3mu7gfdlbgj4ciqckel20.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

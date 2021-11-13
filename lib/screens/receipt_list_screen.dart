@@ -73,6 +73,7 @@ class _ReceiptListScreenState extends State<ReceiptListScreen> {
 
   AppBar buildAppBar() {
     return AppBar(
+      centerTitle: true,
       actions: [
         PopupMenuButton(
             icon: const Icon(Icons.menu_outlined),

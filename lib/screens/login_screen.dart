@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:order_printer_management/helper/manage_strings.dart';
 import 'package:order_printer_management/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -15,60 +16,74 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    final logo = Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: Image.network(
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAHXPluq6GtTRPDIHRv5kJPy86uFjp5sO7hg&usqp=CAU"),
-      ),
-    );
-
-    final email = TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      autofocus: false,
-      decoration: InputDecoration(
-        hintText: 'Kullanıcı adı',
-        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-        labelText: 'Kullanıcı adı giriniz...',
-      ),
-    );
-
-    final password = TextFormField(
-      autofocus: false,
-      obscureText: true,
-      decoration: InputDecoration(
-        hintText: 'Şifre',
-        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-        labelText: 'Şifre giriniz...',
-      ),
-    );
-
-    final loginButton = Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
-      child: RaisedButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
+    Widget logo() {
+      return Hero(
+        tag: 'hero',
+        child: CircleAvatar(
+          backgroundColor: Colors.transparent,
+          radius: 48.0,
+          child: Image.network(
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAHXPluq6GtTRPDIHRv5kJPy86uFjp5sO7hg&usqp=CAU"),
         ),
-        onPressed: () {
-          Navigator.pushNamed(context, "/");
-        },
-        padding: const EdgeInsets.all(12),
-        color: Colors.lightBlueAccent,
-        child: const Text('Giriş Yap', style: TextStyle(color: Colors.white)),
-      ),
-    );
+      );
+    }
 
-    final forgotLabel = FlatButton(
-      child: const Text(
-        'Şifremi unuttum?',
-        style: TextStyle(color: Colors.black54),
-      ),
-      onPressed: () {},
-    );
+    Widget email() {
+      return TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        autofocus: false,
+        decoration: InputDecoration(
+          hintText: 'Kullanıcı adı',
+          contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+          labelText: 'Kullanıcı adı giriniz...',
+        ),
+      );
+    }
+
+    Widget password() {
+      return TextFormField(
+        autofocus: false,
+        obscureText: true,
+        decoration: InputDecoration(
+          hintText: 'Şifre',
+          contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+          labelText: 'Şifre giriniz...',
+        ),
+      );
+    }
+
+    Widget loginButton(BuildContext context) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        // child: RaisedButton(
+        //   shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(24),
+        //   ),
+        //   onPressed: () {
+        //     Navigator.pushNamed(context, "/");
+        //   },
+        //   padding: const EdgeInsets.all(12),
+        //   color: Colors.lightBlueAccent,
+        //   child: const Text('Giriş Yap', style: TextStyle(color: Colors.white)),
+        // ),
+        child: ElevatedButton(
+            onPressed: () =>
+                Navigator.pushNamed(context, ManageStrings.HOME_SCREEN),
+            child: const Text("Giriş Yap")),
+      );
+    }
+
+    Widget forgotLabel() {
+      return TextButton(
+        child: const Text(
+          'Şifremi unuttum?',
+          style: TextStyle(color: Colors.black54),
+        ),
+        onPressed: () {},
+      );
+    }
 
     return MaterialApp(
       home: Scaffold(
@@ -78,14 +93,14 @@ class _LoginScreenState extends State<LoginScreen> {
             shrinkWrap: true,
             padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             children: <Widget>[
-              logo,
+              logo(),
               const SizedBox(height: 48.0),
-              email,
+              email(),
               const SizedBox(height: 8.0),
-              password,
+              password(),
               const SizedBox(height: 24.0),
-              loginButton,
-              forgotLabel
+              loginButton(context),
+              forgotLabel()
             ],
           ),
         ),
