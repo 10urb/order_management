@@ -1,5 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:order_printer_management/helper/manage_strings.dart';
+import 'package:order_printer_management/helper/in_strings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -7,6 +8,8 @@ class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
+
+FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
@@ -26,33 +29,32 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         ElevatedButton.icon(
             onPressed: () {
-              Navigator.pushNamed(context, ManageStrings.CREATE_RECEIPT_SCREEN);
+              Navigator.pushNamed(context, InStrings.CREATE_RECEIPT_SCREEN);
             },
             icon: const Icon(Icons.ac_unit),
             label: const Text("Fiş Oluştur")),
         ElevatedButton.icon(
             onPressed: () {
-              Navigator.pushNamed(context, ManageStrings.RECEIPT_LIST_SCREEN);
+              Navigator.pushNamed(context, InStrings.RECEIPT_LIST_SCREEN);
             },
             icon: const Icon(Icons.face),
             label: const Text("Fiş Listesi")),
         ElevatedButton.icon(
             onPressed: () {
-              Navigator.pushNamed(
-                  context, ManageStrings.PRINTER_CONNECTION_SCREEN);
+              Navigator.pushNamed(context, InStrings.PRINTER_CONNECTION_SCREEN);
             },
             icon: const Icon(Icons.access_alarms_outlined),
             label: const Text("Yazıcıya Bağlan")),
         ElevatedButton.icon(
             onPressed: () {
-              Navigator.pushNamed(context, ManageStrings.REPORT_SCREEN);
+              Navigator.pushNamed(context, InStrings.REPORT_SCREEN);
             },
             icon: const Icon(Icons.access_alarms_outlined),
             label: const Text("Raporlar")),
         ElevatedButton.icon(
             onPressed: () {
               Navigator.pushNamed(
-                  context, ManageStrings.FACTORY_RAW_MATERIAL_SCREEN);
+                  context, InStrings.FACTORY_RAW_MATERIAL_SCREEN);
             },
             icon: const Icon(Icons.access_alarms_outlined),
             label: const Text("Hammadde Girişi")),
@@ -78,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
             label: const Text("OGM Stok Kontrol")),
         ElevatedButton.icon(
             onPressed: () {
-              Navigator.pushNamed(context, ManageStrings.DEFINITION_SCREEN);
+              Navigator.pushNamed(context, InStrings.DEFINITION_SCREEN);
             },
             icon: const Icon(Icons.kayaking),
             label: const Text("Tanımlamalar")),
@@ -86,6 +88,12 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {},
             icon: const Icon(Icons.access_alarms_outlined),
             label: const Text("Ayarlar")),
+        ElevatedButton.icon(
+            onPressed: () {
+              Navigator.pushNamed(context, InStrings.FIREBASE_DEMO_SCREEN);
+            },
+            icon: const Icon(Icons.access_alarms_outlined),
+            label: const Text("FireStoreDemo")),
       ],
       padding: const EdgeInsets.all(30),
     ));
@@ -106,8 +114,10 @@ class _HomeScreenState extends State<HomeScreen> {
       centerTitle: true,
       actions: [
         IconButton(
-            onPressed: () =>
-                Navigator.pushNamed(context, ManageStrings.LOGIN_SCREEN),
+            onPressed: () async {
+              await _auth.signOut();
+              Navigator.pushReplacementNamed(context, InStrings.LOGIN_SCREEN);
+            },
             icon: const Icon(Icons.logout))
       ],
     );

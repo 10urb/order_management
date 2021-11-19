@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:order_printer_management/helper/toastr.dart';
+import 'package:order_printer_management/helper/utilities/toastr.dart';
 
 class ReceiptListScreen extends StatefulWidget {
   const ReceiptListScreen({Key? key}) : super(key: key);

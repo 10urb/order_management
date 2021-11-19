@@ -11,7 +11,7 @@ class CreateReceiptScreen extends StatelessWidget {
             bottomNavigationBar: buildBottomNavigationBar(),
             floatingActionButton: buildAddFloatingActionButton(),
             appBar: buildAppbar(),
-            body: buildBodyListview()));
+            body: buildBodyListview(context)));
   }
 
   BottomNavigationBar buildBottomNavigationBar() {
@@ -44,9 +44,9 @@ class CreateReceiptScreen extends StatelessWidget {
     );
   }
 
-  ListView buildBodyListview() {
+  ListView buildBodyListview(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.only(bottom: 5, left: 5, right: 5, top: 0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.aspectRatio),
       children: [
         buildCustomerChooseDropdownField(),
         Row(
