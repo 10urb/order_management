@@ -6,21 +6,21 @@ class InStyle {
     primary: Colors.grey,
     minimumSize: const Size(88, 36),
     shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(5)),
+      borderRadius: BorderRadius.all(Radius.circular(50)),
     ),
   );
   static final ButtonStyle successElevatedButtonStyle =
       ElevatedButton.styleFrom(
     onPrimary: Colors.white,
-    primary: Colors.green[300],
+    primary: Colors.green[400],
     minimumSize: const Size(88, 36),
     shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(5)),
+      borderRadius: BorderRadius.all(Radius.circular(50)),
     ),
   );
   static final ButtonStyle loginElevatedButtonStyle = ElevatedButton.styleFrom(
     onPrimary: Colors.white,
-    primary: Colors.amberAccent,
+    primary: Colors.blue,
     minimumSize: const Size(88, 36),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -41,7 +41,7 @@ class InStyle {
     primary: Colors.red.shade400,
     minimumSize: const Size(88, 36),
     shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(5)),
+      borderRadius: BorderRadius.all(Radius.circular(50)),
     ),
   );
   static final ButtonStyle blueElevatedButtonStyle = ElevatedButton.styleFrom(
@@ -49,7 +49,7 @@ class InStyle {
     primary: Colors.blue.shade400,
     minimumSize: const Size(88, 36),
     shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(5)),
+      borderRadius: BorderRadius.all(Radius.circular(50)),
     ),
   );
 }

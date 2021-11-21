@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
         tag: 'hero',
         child: CircleAvatar(
           backgroundColor: Colors.transparent,
-          radius: 48.0,
+          radius: 44.0,
           child: Image.network(
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAHXPluq6GtTRPDIHRv5kJPy86uFjp5sO7hg&usqp=CAU"),
         ),
@@ -203,6 +203,8 @@ class _LoginScreenState extends State<LoginScreen> {
           .showSnackBar(SnackBar(content: Text("Hoşgeldin ${user?.email}")));
 
       debugPrint("Hoşgeldin ${user?.email}");
+
+      Toastr.buildSuccessToast("Hoşgeldin  ${user?.email.toString()}");
     } on FirebaseAuthException catch (e) {
       debugPrint(e.message.toString());
 

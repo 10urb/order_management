@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:order_printer_management/helper/in_strings.dart';
 
 class ForestManagementStockScreen extends StatefulWidget {
   const ForestManagementStockScreen({Key? key}) : super(key: key);
@@ -15,7 +16,13 @@ class _ForestManagementStockScreenState
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("OGM Stoğu"),
+          backgroundColor: Colors.lightGreen.shade700,
+          title: Text(InStrings.OGM_STOGU),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+          backgroundColor: Colors.orange,
         ),
         body: ListView(
           children: [
@@ -27,12 +34,16 @@ class _ForestManagementStockScreenState
                   DataColumn(label: Text("Ürün\nCinsi")),
                   DataColumn(label: Text("Ağaç\nCinsi")),
                   DataColumn(label: Text("Stokta\nVar Olan\nM³")),
+                  DataColumn(label: Text("... Tarihi")),
                 ], rows: const [
                   DataRow(cells: [
                     DataCell(Text("Tomruk")),
                     DataCell(Text("Kayın")),
                     DataCell(
                       Text("800"),
+                    ),
+                    DataCell(
+                      Text("20.12.2021"),
                     ),
                   ])
                 ]),

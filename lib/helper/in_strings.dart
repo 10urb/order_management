@@ -12,9 +12,10 @@ class InStrings {
   static String LOGIN_SCREEN = "/LoginScreen";
   static String RECEIPT_LIST_SCREEN = "/ReceiptListScreen";
   static String REPORT_SCREEN = "/ReportScreen";
-  static String HOME_SCREEN = "/";
+  static String HOME_SCREEN = "/HomeScreen";
   static String REGISTER_SCREEN = "/RegisterScreen";
-//
+
+  ///
   static String KAYIT_OL = "Kayıt Ol";
   static String GONDER = "Gönder";
   static String GIRIS_YAP = "Giriş Yap";
@@ -26,4 +27,24 @@ class InStrings {
   static String SIFREMI_UNUTTUM = "Şifremi Unuttum!";
   static String KAYIT_BASARILI = "Kayıt Başarılı";
   static String KAYIT_BASARISIZ = "Kayıt Başarısız";
+  static String EKLE = "Ekle";
+  static String E_POSTA_ADRESI = "E-Posta Adresi :";
+  static String VAZGEC = "Vazgeç";
+  static String TELEFON_NUMARASI = "Telefon Numarası :";
+  static String EK_BILGI = "Ek Bilgi :";
+  static String ILCE = "İlçe :";
+  static String IL = "İl :";
+  static String VERGI_DAIRESI = "Vergi Dairesi : *";
+  static String VERGI_NO = "Vergi No : *";
+  static String TANIMLAMA = "Tanımlamalar";
+  static String KALINLIK_TANIMLAMA = "Kalınlık Tanımlama";
+  static String MUSTERI_EKLE = "Müşteri Ekle";
+  static String SINIF_TANIMLAMA = "Sınıf Tanımlama";
+  static String KALINLIK = "Kalınlık *:";
+  static String KALINLIK_EKLE = "Kalınlık Ekle";
+  static String SINIF = "Sınıf  *:";
+  static String SINIF_EKLE = "Sınıf Ekle";
+  static String KAYDET_VE_YAZDIR = "Kaydet\n    ve\nYazdır";
+  static var TUM_FIRMALAR = "Tüm Firmalar";
+  static String OGM_STOGU = "OGM Stoğu";
 }

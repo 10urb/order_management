@@ -33,7 +33,7 @@ void main() async {
     MaterialApp(
       initialRoute: _auth.currentUser == null
           ? InStrings.LOGIN_SCREEN
-          : InStrings.DEFINITION_SCREEN,
+          : InStrings.FACTORY_RAW_MATERIAL_SCREEN,
       routes: {
         InStrings.HOME_SCREEN: (BuildContext context) => const HomeScreen(),
         InStrings.CREATE_RECEIPT_SCREEN: (BuildContext context) =>

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:order_printer_management/helper/in_strings.dart';
+import 'package:order_printer_management/style/in_style.dart';
 
 class DefinitionScreen extends StatefulWidget {
   const DefinitionScreen({Key? key}) : super(key: key);
@@ -25,18 +27,32 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
     return MaterialApp(
       home: Scaffold(
         appBar: buildAppBar(),
-        body: ListView(
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  addCustomerDialog(context);
-                },
-                child: const Text("Müşteri Ekle")),
-            ElevatedButton(
-                onPressed: () {}, child: const Text("Kalınlık Tanımlama")),
-            ElevatedButton(
-                onPressed: () {}, child: const Text("Sınıf Tanımlama")),
-          ],
+        body: Container(
+          margin: EdgeInsets.symmetric(
+              vertical: MediaQuery.of(context).size.height / 30,
+              horizontal: MediaQuery.of(context).size.width / 20),
+          child: ListView(
+            children: [
+              ElevatedButton(
+                  style: InStyle.signUpElevatedButtonStyle,
+                  onPressed: () {
+                    addCustomerDialog(context);
+                  },
+                  child: Text(InStrings.MUSTERI_EKLE)),
+              ElevatedButton(
+                  style: InStyle.signUpElevatedButtonStyle,
+                  onPressed: () {
+                    addThicknessDialog(context);
+                  },
+                  child: Text(InStrings.KALINLIK_TANIMLAMA)),
+              ElevatedButton(
+                  style: InStyle.signUpElevatedButtonStyle,
+                  onPressed: () {
+                    addQualityClassDialog(context);
+                  },
+                  child: Text(InStrings.SINIF_TANIMLAMA)),
+            ],
+          ),
         ),
       ),
     );
@@ -44,7 +60,8 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
 
   AppBar buildAppBar() {
     return AppBar(
-      title: const Text("Tanımlamalar"),
+      backgroundColor: Colors.black38,
+      title: Text(InStrings.TANIMLAMA),
     );
   }
 
@@ -82,58 +99,150 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                   controller: _taxNumberController,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      label: Text("Vergi No : *"),
-                      border: OutlineInputBorder()),
+                  decoration: InputDecoration(
+                      label: Text(InStrings.VERGI_NO),
+                      border: const OutlineInputBorder()),
                 ),
                 TextFormField(
                   controller: _taxAdministrationController,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      label: Text("Vergi Dairesi : *"),
-                      border: OutlineInputBorder()),
+                  decoration: InputDecoration(
+                      label: Text(InStrings.VERGI_DAIRESI),
+                      border: const OutlineInputBorder()),
                 ),
                 TextFormField(
                   controller: _cityController,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      label: Text("İl :"), border: OutlineInputBorder()),
+                  decoration: InputDecoration(
+                      label: Text(InStrings.IL),
+                      border: const OutlineInputBorder()),
                 ),
                 TextFormField(
                   controller: _districtController,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      label: Text("İlçe :"), border: OutlineInputBorder()),
+                  decoration: InputDecoration(
+                      label: Text(InStrings.ILCE),
+                      border: OutlineInputBorder()),
                 ),
                 TextFormField(
                   controller: _noteController,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.name,
-                  decoration: const InputDecoration(
-                      label: Text("Ek Bilgi :"), border: OutlineInputBorder()),
+                  decoration: InputDecoration(
+                      label: Text(InStrings.EK_BILGI),
+                      border: const OutlineInputBorder()),
                 ),
                 TextFormField(
                   controller: _phoneNumberController,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.phone,
-                  decoration: const InputDecoration(
-                      label: Text("Telefon Numarası :"),
-                      border: OutlineInputBorder()),
+                  decoration: InputDecoration(
+                      label: Text(InStrings.TELEFON_NUMARASI),
+                      border: const OutlineInputBorder()),
                 ),
                 TextFormField(
                   controller: _emailController,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                      label: Text("E-Posta Adresi :"),
-                      border: OutlineInputBorder()),
+                  decoration: InputDecoration(
+                      label: Text(InStrings.E_POSTA_ADRESI),
+                      border: const OutlineInputBorder()),
                 ),
-                ElevatedButton(child: const Text('Onayla '), onPressed: () {}),
                 ElevatedButton(
-                  child: const Text('Vazgeç'),
+                  child: Text(InStrings.EKLE),
+                  onPressed: () {},
+                  style: InStyle.successElevatedButtonStyle,
+                ),
+                ElevatedButton(
+                  child: Text(InStrings.VAZGEC),
+                  style: InStyle.cancelElevatedButtonStyle,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  addThicknessDialog(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Form(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: AlertDialog(
+              backgroundColor: Colors.white,
+              title: Text(
+                InStrings.KALINLIK_EKLE,
+                textAlign: TextAlign.center,
+              ),
+              actions: <Widget>[
+                TextFormField(
+                  controller: _companyNameController,
+                  textAlign: TextAlign.center,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      label: Text(InStrings.KALINLIK),
+                      border: const OutlineInputBorder()),
+                ),
+                ElevatedButton(
+                  child: Text(InStrings.EKLE),
+                  onPressed: () {},
+                  style: InStyle.successElevatedButtonStyle,
+                ),
+                ElevatedButton(
+                  child: Text(InStrings.VAZGEC),
+                  style: InStyle.cancelElevatedButtonStyle,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  addQualityClassDialog(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Form(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: AlertDialog(
+              backgroundColor: Colors.white,
+              title: Text(
+                InStrings.SINIF_EKLE,
+                textAlign: TextAlign.center,
+              ),
+              actions: <Widget>[
+                TextFormField(
+                  controller: _companyNameController,
+                  textAlign: TextAlign.center,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      label: Text(InStrings.SINIF),
+                      border: const OutlineInputBorder()),
+                ),
+                ElevatedButton(
+                  child: Text(InStrings.EKLE),
+                  onPressed: () {},
+                  style: InStyle.successElevatedButtonStyle,
+                ),
+                ElevatedButton(
+                  child: Text(InStrings.VAZGEC),
+                  style: InStyle.cancelElevatedButtonStyle,
                   onPressed: () {
                     Navigator.pop(context);
                   },
