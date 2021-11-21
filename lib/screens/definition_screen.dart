@@ -125,7 +125,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       label: Text(InStrings.ILCE),
-                      border: OutlineInputBorder()),
+                      border: const OutlineInputBorder()),
                 ),
                 TextFormField(
                   controller: _noteController,

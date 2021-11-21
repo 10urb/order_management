@@ -21,7 +21,7 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-Validators validators = Validators();
+Validators _validators = Validators();
 
 final _emailController = TextEditingController();
 final _passwordController = TextEditingController();
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget email() {
     return TextFormField(
       validator: MultiValidator(
-          [validators.emailValidator, validators.requiredValidator]),
+          [_validators.emailValidator, _validators.requiredValidator]),
       controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget password() {
     return TextFormField(
       validator: MultiValidator([
-        validators.requiredValidator,
+        _validators.requiredValidator,
         MinLengthValidator(6, errorText: InStrings.EN_AZ_6_KARAKTER_OLMALI)
       ]),
       controller: _passwordController,
@@ -139,6 +139,11 @@ class _LoginScreenState extends State<LoginScreen> {
           onPressed: () {
             if (_formKey.currentState!.validate()) {
               signIn();
+              if (_auth.currentUser == null) {
+                Toastr.buildErrorToast("Giriş Bilgileri Geçerli Değil!");
+              }
+
+              Toastr.buildSuccessToast("Giriş Başarılı, Hoşgeldiniz.");
               print(_auth.currentUser);
               Navigator.pushReplacementNamed(context, InStrings.HOME_SCREEN);
             }
@@ -188,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  void signIn() async {
+  signIn() async {
     FirebaseAuth _auth = FirebaseAuth.instance;
 
     try {

@@ -45,6 +45,12 @@ class InStrings {
   static String SINIF = "Sınıf  *:";
   static String SINIF_EKLE = "Sınıf Ekle";
   static String KAYDET_VE_YAZDIR = "Kaydet\n    ve\nYazdır";
-  static var TUM_FIRMALAR = "Tüm Firmalar";
+  static String TUM_FIRMALAR = "Tüm Firmalar";
   static String OGM_STOGU = "OGM Stoğu";
+  static String URUN_TIPI = "Ürün Tipi *:";
+  static String AGAC_CINSI = "Ağaç Cinsi *:";
+  static String STOK_GIRIS_MIKTARI = "Stok Giriş Miktarı *:";
+  static String ACIKLAMA = "Ek Bilgi *:";
+  static String URUN_EKLE = "Ürün Ekle";
+  static String TARIH = "Tarih";
 }

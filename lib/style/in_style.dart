@@ -18,6 +18,17 @@ class InStyle {
       borderRadius: BorderRadius.all(Radius.circular(50)),
     ),
   );
+  static elevatedButtonStyleColor(Color primaryColor) {
+    return ElevatedButton.styleFrom(
+      onPrimary: Colors.white,
+      primary: primaryColor,
+      minimumSize: const Size(88, 36),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(50)),
+      ),
+    );
+  }
+
   static final ButtonStyle loginElevatedButtonStyle = ElevatedButton.styleFrom(
     onPrimary: Colors.white,
     primary: Colors.blue,

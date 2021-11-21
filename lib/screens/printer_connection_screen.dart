@@ -14,6 +14,15 @@ class _PrinterConnectionScreenState extends State<PrinterConnectionScreen> {
     return MaterialApp(
       home: Scaffold(
         appBar: buildAppBar(),
+        body: ListView(
+          children: const [
+            ListTile(
+              title: Text("Yazıcılar listelenecek"),
+              trailing: Icon(Icons.bluetooth_connected),
+              leading: Icon(Icons.print),
+            )
+          ],
+        ),
       ),
     );
   }
