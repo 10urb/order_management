@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
+import 'package:order_printer_management/helper/named_routes.dart';
 import 'package:order_printer_management/helper/utilities/toastr.dart';
 import 'package:order_printer_management/screens/home_screen.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -122,7 +123,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 Toastr.buildToast(_message, Colors.green);
-                Navigator.pushReplacementNamed(context, InStrings.HOME_SCREEN);
+                Navigator.pushReplacementNamed(
+                    context, NamedRoutes.HOME_SCREEN);
               }
             },
             child: Text(InStrings.GONDER)),

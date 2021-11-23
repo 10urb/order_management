@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
+import 'package:order_printer_management/helper/named_routes.dart';
 import 'package:order_printer_management/helper/utilities/toastr.dart';
 import 'package:order_printer_management/helper/utilities/validators.dart';
 import 'package:order_printer_management/screens/authentication/register_secreen.dart';
@@ -125,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: ElevatedButton(
           style: InStyle.signUpElevatedButtonStyle,
           onPressed: () {
-            Navigator.pushNamed(context, InStrings.REGISTER_SCREEN);
+            Navigator.pushNamed(context, NamedRoutes.REGISTER_SCREEN);
           },
           child: Text(InStrings.KAYIT_OL)),
     );
@@ -145,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               Toastr.buildSuccessToast("Giriş Başarılı, Hoşgeldiniz.");
               print(_auth.currentUser);
-              Navigator.pushReplacementNamed(context, InStrings.HOME_SCREEN);
+              Navigator.pushReplacementNamed(context, NamedRoutes.HOME_SCREEN);
             }
           },
           child: Text(InStrings.GIRIS_YAP)),

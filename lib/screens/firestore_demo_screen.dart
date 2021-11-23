@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
+import 'package:order_printer_management/helper/named_routes.dart';
 
 class FirestoreDemoScreen extends StatefulWidget {
   const FirestoreDemoScreen({Key? key}) : super(key: key);
@@ -77,7 +78,7 @@ class _FirestoreDemoScreenState extends State<FirestoreDemoScreen> {
             child: const Text("Giriş")),
         ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, InStrings.CUSTOMER_STOCK_SCREEN);
+              Navigator.pushNamed(context, NamedRoutes.CUSTOMER_STOCK_SCREEN);
             },
             child: const Text("sayfa değiştir"))
       ],

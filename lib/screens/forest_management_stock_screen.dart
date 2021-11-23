@@ -14,13 +14,13 @@ class ForestManagementStockScreen extends StatefulWidget {
 
 class _ForestManagementStockScreenState
     extends State<ForestManagementStockScreen> {
-  TextEditingController _noteController = TextEditingController();
-  TextEditingController _inStockController = TextEditingController();
-  TextEditingController _treeSpecieController = TextEditingController();
+  final TextEditingController _noteController = TextEditingController();
+  final TextEditingController _inStockController = TextEditingController();
+  final TextEditingController _treeSpecieController = TextEditingController();
   TextEditingController productTypeController = TextEditingController();
-  Validators _validators = Validators();
+  final Validators _validators = Validators();
 
-  var _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
