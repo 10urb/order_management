@@ -87,7 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
             label: const Text("Odur Ster Ölçü")),
         ElevatedButton.icon(
             style: InStyle.elevatedButtonStyleColor(Colors.lightGreen.shade700),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(
+                  context, NamedRoutes.FOREST_MANAGEMENT_STOCK_SCREEN);
+            },
             icon: const Icon(Icons.access_alarms_outlined),
             label: const Text("OGM Stok Kontrol")),
         ElevatedButton.icon(

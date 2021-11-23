@@ -14,4 +14,5 @@ class NamedRoutes {
   static String HOME_SCREEN = "/HomeScreen";
   static String REGISTER_SCREEN = "/RegisterScreen";
   static String BLUETOOTH_PRINTER_SCREEN = "/BluetoothPrinterScreen";
+  static String FLUTTER_BLUE_DEMO = "/FlutterBlueDemoScreen";
 }

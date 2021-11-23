@@ -30,6 +30,33 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCHCeKvu1xNU79F98oY_tygrWFR9oQcTek",
+      authDomain: "orderandstockmanagement.firebaseapp.com",
+      projectId: "orderandstockmanagement",
+      storageBucket: "orderandstockmanagement.appspot.com",
+      messagingSenderId: "909481915466",
+      appId: "1:909481915466:web:b1502ee048e315f732a2b3",
+      measurementId: "G-2PZGRZ7XLY"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
+
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->

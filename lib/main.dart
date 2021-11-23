@@ -1,11 +1,13 @@
 // ignore_for_file: unused_import
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
 import 'package:order_printer_management/helper/named_routes.dart';
 import 'package:order_printer_management/helper/utilities/bluetooth_printer.dart';
+import 'package:order_printer_management/helper/utilities/flutter_blue/flutter_blue_demo.dart';
 import 'package:order_printer_management/models/tree_species_model.dart';
 import 'package:order_printer_management/screens/authentication/register_secreen.dart';
 import 'package:order_printer_management/screens/create_receipt_screen.dart';
@@ -32,11 +34,15 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
+  _auth = FirebaseAuth.instance;
+  print(_auth.currentUser);
+
   runApp(
     MaterialApp(
-      initialRoute: _auth.currentUser == null
-          ? NamedRoutes.LOGIN_SCREEN
-          : NamedRoutes.BLUETOOTH_PRINTER_SCREEN,
+      // initialRoute: _auth.currentUser == null
+      //     ? NamedRoutes.LOGIN_SCREEN
+      //     : NamedRoutes.HOME_SCREEN,
+      initialRoute: NamedRoutes.HOME_SCREEN,
       routes: {
         NamedRoutes.HOME_SCREEN: (BuildContext context) => const HomeScreen(),
         NamedRoutes.CREATE_RECEIPT_SCREEN: (BuildContext context) =>
