@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
+import 'package:order_printer_management/models/customer_model.dart';
 import 'package:order_printer_management/style/in_style.dart';
 
 class CreateReceiptScreen extends StatefulWidget {
@@ -11,8 +13,13 @@ class CreateReceiptScreen extends StatefulWidget {
 }
 
 class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
+  final _firestore = FirebaseFirestore.instance;
+  late var temporaryMap;
+  late CustomerModel customerModel;
   @override
   Widget build(BuildContext context) {
+    CollectionReference customerReference = _firestore.collection("customers");
+
     return MaterialApp(
         home: Scaffold(
             bottomNavigationBar: buildBottomNavigationBar(),
@@ -145,6 +152,7 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
     return Container(
       margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 10),
       child: DropdownSearch(
+        items: [temporaryMap['company_name']],
         dropdownSearchTextAlign: TextAlign.center,
         mode: Mode.MENU,
         showSearchBox: true,
@@ -160,5 +168,19 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
       onPressed: () {},
       child: const Icon(Icons.add),
     );
+  }
+
+  Future getData() async {
+    CollectionReference _customerReference = _firestore.collection("customers");
+
+    var firstCustomer =
+        _firestore.collection("customers").doc("JrTBOsRPk7VuKuHvoDz6");
+    var response = await firstCustomer.get();
+    print(response.data());
+    var data = response.data();
+    print(data?['company_name']);
+    temporaryMap = data;
+
+    return data?['company_name'];
   }
 }
