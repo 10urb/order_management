@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'create_receipt_model.g.dart';
+part 'receipt_model.g.dart';
 
 @JsonSerializable()
-class CreateReceiptModel {
+class ReceiptModel {
   String? thickness;
   String? treeClass;
   double? height;
@@ -14,7 +14,7 @@ class CreateReceiptModel {
   String? status;
   String? partyNumber;
 
-  CreateReceiptModel(
+  ReceiptModel(
       {this.createdAt,
       this.decimeter,
       this.height,
@@ -25,7 +25,7 @@ class CreateReceiptModel {
       this.width,
       this.partyNumber});
 
-  factory CreateReceiptModel.fromJson(Map<String, dynamic> json) =>
-      _$CreateReceiptModelFromJson(json);
-  Map<String, dynamic> toJson() => _$CreateReceiptModelToJson(this);
+  factory ReceiptModel.fromJson(Map<String, dynamic> json) =>
+      _$ReceiptModelFromJson(json);
+  Map<String, dynamic> toJson() => _$ReceiptModelToJson(this);
 }

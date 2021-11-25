@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'create_receipt_model.dart';
+part of 'receipt_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CreateReceiptModel _$CreateReceiptModelFromJson(Map<String, dynamic> json) =>
-    CreateReceiptModel(
+ReceiptModel _$ReceiptModelFromJson(Map<String, dynamic> json) => ReceiptModel(
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -23,7 +22,7 @@ CreateReceiptModel _$CreateReceiptModelFromJson(Map<String, dynamic> json) =>
       partyNumber: json['partyNumber'] as String?,
     );
 
-Map<String, dynamic> _$CreateReceiptModelToJson(CreateReceiptModel instance) =>
+Map<String, dynamic> _$ReceiptModelToJson(ReceiptModel instance) =>
     <String, dynamic>{
       'thickness': instance.thickness,
       'treeClass': instance.treeClass,
