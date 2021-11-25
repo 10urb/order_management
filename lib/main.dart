@@ -1,14 +1,14 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blue/flutter_blue.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
 import 'package:order_printer_management/helper/named_routes.dart';
-import 'package:order_printer_management/helper/utilities/bluetooth_printer.dart';
 import 'package:order_printer_management/helper/utilities/flutter_blue/flutter_blue_demo.dart';
-import 'package:order_printer_management/models/tree_species_model.dart';
+import 'package:order_printer_management/models/tree_species_model/tree_species_model.dart';
 import 'package:order_printer_management/screens/authentication/register_secreen.dart';
 import 'package:order_printer_management/screens/create_receipt_screen.dart';
 import 'package:order_printer_management/screens/customer_stock_screen.dart';
@@ -28,7 +28,6 @@ import 'package:order_printer_management/screens/report_screen.dart';
 //   ));
 // }
 FirebaseAuth _auth = FirebaseAuth.instance;
-TreeSpeciesModel dedeneme = TreeSpeciesModel.instance();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +38,8 @@ void main() async {
 
   runApp(
     MaterialApp(
+      locale: const Locale("tr", "TR"),
+
       // initialRoute: _auth.currentUser == null
       //     ? NamedRoutes.LOGIN_SCREEN
       //     : NamedRoutes.HOME_SCREEN,
@@ -66,8 +67,6 @@ void main() async {
             const ReportScreen(),
         NamedRoutes.REGISTER_SCREEN: (BuildContext context) =>
             const RegisterScreen(),
-        NamedRoutes.BLUETOOTH_PRINTER_SCREEN: (BuildContext context) =>
-            BluetoothPrinter(),
       },
     ),
   );

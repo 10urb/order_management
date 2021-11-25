@@ -2,13 +2,13 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, deprecated_member_use, prefer_is_empty
 
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
 class FlutterBlueDemo extends StatelessWidget {
-  FlutterBlueDemo({Key? key, required this.result, this.onTap})
+  const FlutterBlueDemo({Key? key, required this.result, this.onTap})
       : super(key: key);
 
   final ScanResult result;

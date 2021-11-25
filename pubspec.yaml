@@ -45,6 +45,12 @@ dependencies:
   form_field_validator: ^1.1.0
   date_field: ^2.1.2
   flutter_blue: ^0.8.0
+  json_serializable: ^6.0.1
+  json_annotation: ^4.3.0
+  http: ^0.13.4
+  
+  
+
 
   
 
@@ -58,6 +64,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  build_runner: ^2.1.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

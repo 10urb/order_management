@@ -82,7 +82,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                 TextFormField(
                   controller: _companyNameController,
                   textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.name,
                   decoration: const InputDecoration(
                       label: Text("Şirket Adı : *"),
                       border: OutlineInputBorder()),
@@ -90,7 +90,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                 TextFormField(
                   controller: _relatedPersonController,
                   textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.name,
                   decoration: const InputDecoration(
                       label: Text("İlgili Kişi :"),
                       border: OutlineInputBorder()),
@@ -106,7 +106,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                 TextFormField(
                   controller: _taxAdministrationController,
                   textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                       label: Text(InStrings.VERGI_DAIRESI),
                       border: const OutlineInputBorder()),
@@ -114,7 +114,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                 TextFormField(
                   controller: _cityController,
                   textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                       label: Text(InStrings.IL),
                       border: const OutlineInputBorder()),
@@ -122,7 +122,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                 TextFormField(
                   controller: _districtController,
                   textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                       label: Text(InStrings.ILCE),
                       border: const OutlineInputBorder()),
@@ -188,7 +188,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                 TextFormField(
                   controller: _companyNameController,
                   textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                       label: Text(InStrings.KALINLIK),
                       border: const OutlineInputBorder()),
@@ -230,7 +230,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                 TextFormField(
                   controller: _companyNameController,
                   textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                       label: Text(InStrings.SINIF),
                       border: const OutlineInputBorder()),

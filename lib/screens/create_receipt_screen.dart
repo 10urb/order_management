@@ -1,8 +1,10 @@
+// ignore_for_file: avoid_print, prefer_typing_uninitialized_variables
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
-import 'package:order_printer_management/models/customer_model.dart';
+import 'package:order_printer_management/models/customer_model/customer_model.dart';
 import 'package:order_printer_management/style/in_style.dart';
 
 class CreateReceiptScreen extends StatefulWidget {
@@ -14,12 +16,10 @@ class CreateReceiptScreen extends StatefulWidget {
 
 class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
   final _firestore = FirebaseFirestore.instance;
-  late var temporaryMap;
+  var temporaryMap = Map<String, dynamic>();
   late CustomerModel customerModel;
   @override
   Widget build(BuildContext context) {
-    CollectionReference customerReference = _firestore.collection("customers");
-
     return MaterialApp(
         home: Scaffold(
             bottomNavigationBar: buildBottomNavigationBar(),
@@ -152,7 +152,7 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
     return Container(
       margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 10),
       child: DropdownSearch(
-        items: [temporaryMap['company_name']],
+        items: [temporaryMap.entries],
         dropdownSearchTextAlign: TextAlign.center,
         mode: Mode.MENU,
         showSearchBox: true,
@@ -171,16 +171,14 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
   }
 
   Future getData() async {
-    CollectionReference _customerReference = _firestore.collection("customers");
-
     var firstCustomer =
         _firestore.collection("customers").doc("JrTBOsRPk7VuKuHvoDz6");
     var response = await firstCustomer.get();
     print(response.data());
     var data = response.data();
     print(data?['company_name']);
-    temporaryMap = data;
+    temporaryMap = data!.cast();
 
-    return data?['company_name'];
+    return data['company_name'];
   }
 }
