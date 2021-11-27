@@ -1,10 +1,11 @@
 // ignore_for_file: avoid_print, prefer_typing_uninitialized_variables
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:convert';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
 import 'package:order_printer_management/models/customer_model/customer_model.dart';
+import 'package:order_printer_management/services/customer_service.dart';
 import 'package:order_printer_management/style/in_style.dart';
 
 class CreateReceiptScreen extends StatefulWidget {
@@ -15,9 +16,33 @@ class CreateReceiptScreen extends StatefulWidget {
 }
 
 class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
-  final _firestore = FirebaseFirestore.instance;
-  var temporaryMap = Map<String, dynamic>();
-  late CustomerModel customerModel;
+  List<CustomerValue> customerModelValueList = [];
+
+  List<dynamic> list = [];
+
+  CustomerService service = CustomerService();
+  Future getCustomers() async {
+    CustomerService service = CustomerService();
+
+    var response = await service.getAll();
+    if (response.statusCode == 200) {
+      var jsonModel = CustomerModel.fromJson(jsonDecode(response.body));
+
+      for (var item in jsonModel.value!) {
+        customerModelValueList.add(item);
+      }
+      print(customerModelValueList.length);
+    } else {
+      return response.statusCode;
+    }
+  }
+
+  @override
+  void initState() {
+    getCustomers();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -51,11 +76,14 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
       title: const Text("Fiş Oluşturma"),
       centerTitle: false,
       actions: [
-        ElevatedButton(
-            style: InStyle.cancelRedElevatedButtonStyle,
-            onPressed: () {},
-            onLongPress: () {},
-            child: Text(InStrings.KAYDET_VE_YAZDIR))
+        Container(
+          margin: const EdgeInsets.symmetric(vertical: 3),
+          child: ElevatedButton(
+              style: InStyle.cancelRedElevatedButtonStyle,
+              onPressed: () {},
+              onLongPress: () {},
+              child: Text(InStrings.KAYDET_VE_YAZDIR)),
+        )
       ],
     );
   }
@@ -152,7 +180,7 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
     return Container(
       margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 10),
       child: DropdownSearch(
-        items: [temporaryMap.entries],
+        items: customerModelValueList.map((e) => e.city).toList(),
         dropdownSearchTextAlign: TextAlign.center,
         mode: Mode.MENU,
         showSearchBox: true,
@@ -170,15 +198,15 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
     );
   }
 
-  Future getData() async {
-    var firstCustomer =
-        _firestore.collection("customers").doc("JrTBOsRPk7VuKuHvoDz6");
-    var response = await firstCustomer.get();
-    print(response.data());
-    var data = response.data();
-    print(data?['company_name']);
-    temporaryMap = data!.cast();
+  // Future getData() async {
+  //   var firstCustomer =
+  //       _firestore.collection("customers").doc("JrTBOsRPk7VuKuHvoDz6");
+  //   var response = await firstCustomer.get();
+  //   print(response.data());
+  //   var data = response.data();
+  //   print(data?['company_name']);
+  //   temporaryMap = data!.cast();
 
-    return data['company_name'];
-  }
+  //   return data['company_name'];
+  // }
 }

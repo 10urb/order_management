@@ -41,4 +41,5 @@ class InStrings {
   static String ACIKLAMA = "Ek Bilgi *:";
   static String URUN_EKLE = "Ürün Ekle";
   static String TARIH = "Tarih";
+  static String SEMT = "Semt";
 }

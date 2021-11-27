@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ElevatedButton.icon(
             onPressed: () {},
             icon: const Icon(Icons.access_alarms_outlined),
-            label: const Text("Odur Ster Ölçü")),
+            label: const Text("Odun Ster Ölçü")),
         ElevatedButton.icon(
             style: InStyle.elevatedButtonStyleColor(Colors.lightGreen.shade700),
             onPressed: () {
