@@ -9,8 +9,8 @@ class ReceiptModel {
   double? height;
   double? width;
   double? decimeter;
-  DateTime? createdAt;
-  DateTime? shipmentDate;
+  String? createdAt = DateTime.now().toString();
+  String? shipmentDate;
   String? status;
   String? partyNumber;
 

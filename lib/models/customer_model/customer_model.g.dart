@@ -32,6 +32,7 @@ CustomerValue _$CustomerValueFromJson(Map<String, dynamic> json) =>
       status: json['status'] as bool?,
       town: json['town'] as String?,
       taxNumber: json['taxNumber'] as String?,
+      createdAt: json['createdAt'] as String?,
     );
 
 Map<String, dynamic> _$CustomerValueToJson(CustomerValue instance) =>
@@ -48,4 +49,5 @@ Map<String, dynamic> _$CustomerValueToJson(CustomerValue instance) =>
       'city': instance.city,
       'town': instance.town,
       'status': instance.status,
+      'createdAt': instance.createdAt,
     };

@@ -7,14 +7,10 @@ part of 'receipt_model.dart';
 // **************************************************************************
 
 ReceiptModel _$ReceiptModelFromJson(Map<String, dynamic> json) => ReceiptModel(
-      createdAt: json['createdAt'] == null
-          ? null
-          : DateTime.parse(json['createdAt'] as String),
+      createdAt: json['createdAt'] as String?,
       decimeter: (json['decimeter'] as num?)?.toDouble(),
       height: (json['height'] as num?)?.toDouble(),
-      shipmentDate: json['shipmentDate'] == null
-          ? null
-          : DateTime.parse(json['shipmentDate'] as String),
+      shipmentDate: json['shipmentDate'] as String?,
       status: json['status'] as String?,
       thickness: json['thickness'] as String?,
       treeClass: json['treeClass'] as String?,
@@ -29,8 +25,8 @@ Map<String, dynamic> _$ReceiptModelToJson(ReceiptModel instance) =>
       'height': instance.height,
       'width': instance.width,
       'decimeter': instance.decimeter,
-      'createdAt': instance.createdAt?.toIso8601String(),
-      'shipmentDate': instance.shipmentDate?.toIso8601String(),
+      'createdAt': instance.createdAt,
+      'shipmentDate': instance.shipmentDate,
       'status': instance.status,
       'partyNumber': instance.partyNumber,
     };

@@ -27,6 +27,7 @@ class CustomerValue {
   String? city;
   String? town;
   bool? status;
+  String? createdAt = DateTime.now().toString();
   CustomerValue(
       {this.companyName,
       this.district,
@@ -39,7 +40,8 @@ class CustomerValue {
       this.city,
       this.status,
       this.town,
-      this.taxNumber});
+      this.taxNumber,
+      this.createdAt});
   factory CustomerValue.fromJson(Map<String, dynamic> json) =>
       _$CustomerValueFromJson(json);
   Map<String, dynamic> toJson() => _$CustomerValueToJson(this);

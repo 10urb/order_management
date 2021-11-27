@@ -1,8 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 class InStrings {
-  /// NamedRoutes
-
   ///
   static String KAYIT_OL = "Kayıt Ol";
   static String GONDER = "Gönder";
@@ -42,4 +40,16 @@ class InStrings {
   static String URUN_EKLE = "Ürün Ekle";
   static String TARIH = "Tarih";
   static String SEMT = "Semt";
+
+  ///CreateReceiptScreen
+  static String PARTI_NUMARASI = "Parti Numarası  *:";
+  static String EN = "En   *:";
+  static String DM3 = "Dm³  *:";
+  static String YENI_FIS_EKLE = "Yeni Fiş Ekle";
+  static String SINIF_SECINIZ = "Sınıf Seçiniz";
+  static String KALINLIK_SECINIZ = "Kalınlık Seçiniz";
+  static String MUSTERI_SECINIZ = "Müşteri Seçiniz...";
+  static String YENI_KALEM_EKLE = "Yeni Kalem Ekle";
+  static String BOY = "Boy   *:";
+  static String MUSTERI_NUMARASI = "Müşteri Numarası : ";
 }

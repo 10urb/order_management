@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
+import 'package:order_printer_management/helper/utilities/validators.dart';
 import 'package:order_printer_management/models/customer_model/customer_model.dart';
 import 'package:order_printer_management/services/customer_service.dart';
 import 'package:order_printer_management/style/in_style.dart';
@@ -18,6 +19,9 @@ class DefinitionScreen extends StatefulWidget {
 class _DefinitionScreenState extends State<DefinitionScreen> {
   CustomerService service = CustomerService();
   List<CustomerValue> newValueList = [];
+
+  Validators _validator = Validators();
+
   var newCompanyName,
       newDistrict,
       newEmmail,
@@ -32,6 +36,8 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
       newThickness,
       newTreeClass;
   late CustomerModel newCustomerModel;
+
+  var _formKey = GlobalKey<FormState>();
 
   Future addCustomerPut() async {
     var response = await service.addPut(newCustomerModel);
@@ -97,6 +103,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
       context: context,
       builder: (context) {
         return Form(
+          key: _formKey,
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: AlertDialog(
@@ -106,6 +113,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                 textAlign: TextAlign.center,
               ),
               actions: <Widget>[
+                idTextFormField(),
                 companyNameTextFormField(),
                 relatedPersonTextFormField(),
                 taxNumberTextFormField(),
@@ -167,6 +175,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
 
   TextFormField emailTextFormField() {
     return TextFormField(
+      validator: _validator.emailValidator,
       onChanged: (value) => newEmmail = value,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.emailAddress,
@@ -183,6 +192,19 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
       keyboardType: TextInputType.phone,
       decoration: InputDecoration(
           label: Text(InStrings.TELEFON_NUMARASI),
+          border: const OutlineInputBorder()),
+    );
+  }
+
+  TextFormField idTextFormField() {
+    return TextFormField(
+      validator: _validator.requiredValidator,
+      readOnly: true,
+      onChanged: (value) => newId = value,
+      textAlign: TextAlign.center,
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+          label: Text(InStrings.MUSTERI_NUMARASI),
           border: const OutlineInputBorder()),
     );
   }
@@ -209,6 +231,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
 
   TextFormField townTextFormField() {
     return TextFormField(
+      validator: _validator.requiredValidator,
       onChanged: (value) => newTown = value,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.name,
@@ -219,6 +242,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
 
   TextFormField cityTextFormField() {
     return TextFormField(
+      validator: _validator.requiredValidator,
       onChanged: (value) => newCity = value,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.name,
