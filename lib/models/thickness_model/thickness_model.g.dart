@@ -8,10 +8,12 @@ part of 'thickness_model.dart';
 
 ThicknessModel _$ThicknessModelFromJson(Map<String, dynamic> json) =>
     ThicknessModel(
-      thicknessNumber: (json['thicknessNumber'] as num?)?.toDouble(),
+      thicknessValue: (json['thicknessValue'] as List<dynamic>?)
+          ?.map((e) => (e as num).toDouble())
+          .toList(),
     );
 
 Map<String, dynamic> _$ThicknessModelToJson(ThicknessModel instance) =>
     <String, dynamic>{
-      'thicknessNumber': instance.thicknessNumber,
+      'thicknessValue': instance.thicknessValue,
     };

@@ -37,4 +37,16 @@ class Toastr {
       fontSize: 12.0,
     );
   }
+
+  static buildNotifyToast(String message) {
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.TOP,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.amber,
+      textColor: Colors.white,
+      fontSize: 12.0,
+    );
+  }
 }

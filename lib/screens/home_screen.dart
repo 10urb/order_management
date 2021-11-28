@@ -31,7 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ElevatedButton.icon(
             style: InStyle.elevatedButtonStyleColor(Colors.brown),
             onPressed: () {
-              Navigator.pushNamed(context, NamedRoutes.CREATE_RECEIPT_SCREEN);
+              Navigator.of(context)
+                  .pushNamed(NamedRoutes.CREATE_RECEIPT_SCREEN);
             },
             icon: const Icon(Icons.ac_unit),
             label: const Text("Fiş Oluştur")),

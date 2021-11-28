@@ -8,7 +8,9 @@ part of 'tree_class_model.dart';
 
 TreeClassModel _$TreeClassModelFromJson(Map<String, dynamic> json) =>
     TreeClassModel(
-      classNumber: (json['classNumber'] as num?)?.toDouble(),
+      classNumber: (json['classNumber'] as List<dynamic>?)
+          ?.map((e) => (e as num).toDouble())
+          .toList(),
     );
 
 Map<String, dynamic> _$TreeClassModelToJson(TreeClassModel instance) =>

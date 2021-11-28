@@ -3,7 +3,7 @@ part 'tree_class_model.g.dart';
 
 @JsonSerializable()
 class TreeClassModel {
-  double? classNumber;
+  List<double>? classNumber;
   TreeClassModel({this.classNumber});
 
   factory TreeClassModel.fromJson(Map<String, dynamic> json) =>

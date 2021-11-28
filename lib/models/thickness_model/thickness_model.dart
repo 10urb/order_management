@@ -4,8 +4,8 @@ part 'thickness_model.g.dart';
 
 @JsonSerializable()
 class ThicknessModel {
-  double? thicknessNumber;
-  ThicknessModel({this.thicknessNumber});
+  List<double>? thicknessValue;
+  ThicknessModel({this.thicknessValue});
 
   factory ThicknessModel.fromJson(Map<String, dynamic> json) =>
       _$ThicknessModelFromJson(json);
