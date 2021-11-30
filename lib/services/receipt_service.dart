@@ -15,12 +15,12 @@ class ReceiptService {
     return response;
   }
 
-  // Future<http.Response> addPost(Object body) async {
-  //   const String uri = Environment.baseUri + "receipts.json";
-  //   var response = await http.post(Uri.parse(uri),
-  //       body: body, headers: Environment.apiHeader);
-  //   return response;
-  // }
+  Future<http.Response> addPost(ReceiptModel receiptModel) async {
+    var toJson = jsonEncode(receiptModel.toJson());
+    const String uri = Environment.baseUri + "receipts.json";
+    var response = await http.post(Uri.parse(uri), body: toJson);
+    return response;
+  }
 
   Future<http.Response> addPut(ReceiptModel receiptModel) async {
     var toJson = jsonEncode(receiptModel.toJson());

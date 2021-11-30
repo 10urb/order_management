@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:order_printer_management/helper/in_strings.dart';
 import 'package:order_printer_management/helper/utilities/validators.dart';
 import 'package:order_printer_management/models/customer_model/customer_model.dart';
+import 'package:order_printer_management/screens/create_receipt_screen/create_receipt_screen.dart';
 import 'package:order_printer_management/services/customer_service.dart';
 import 'package:order_printer_management/style/in_style.dart';
 part 'definition_screen.data.dart';
@@ -16,8 +17,15 @@ class DefinitionScreen extends StatefulWidget {
 }
 
 class _DefinitionScreenState extends State<DefinitionScreen> {
-  Future addCustomerPut() async {
-    var response = await service.addPut(newCustomerModel);
+  // Future addCustomerPut() async {
+  //   var response = await service.addPut(newCustomerModel);
+  //   print(response.statusCode);
+
+  //   print(response.body);
+  // }
+
+  Future addCustomerPost(CustomerModel newCustomer) async {
+    var response = await _service.addPost(newCustomer);
     print(response.statusCode);
 
     print(response.body);
@@ -98,7 +106,7 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                   child: Text(InStrings.EKLE),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      CustomerValue newValue = CustomerValue(
+                      CustomerValue _newCustomerValue = CustomerValue(
                           companyName: _newCompanyName,
                           district: _newDistrict,
                           email: _newEmmail,
@@ -110,12 +118,12 @@ class _DefinitionScreenState extends State<DefinitionScreen> {
                           city: _newCity,
                           town: _newTown,
                           status: true,
+                          createdAt: _newCreatedAt,
                           taxNumber: _newTaxNumber);
 
-                      newValueList.add(newValue);
-
-                      newCustomerModel = CustomerModel(value: newValueList);
-                      addCustomerPut();
+                      var _newCustomer =
+                          CustomerModel(value: _newCustomerValue);
+                      addCustomerPost(_newCustomer);
                     }
                   },
                   style: InStyle.successElevatedButtonStyle,

@@ -4,9 +4,10 @@ part 'customer_model.g.dart';
 
 @JsonSerializable()
 class CustomerModel {
-  List<CustomerValue>? value;
+  Object? object;
+  CustomerValue? value;
 
-  CustomerModel({this.value});
+  CustomerModel({this.value, this.object});
 
   factory CustomerModel.fromJson(Map<String, dynamic> json) =>
       _$CustomerModelFromJson(json);

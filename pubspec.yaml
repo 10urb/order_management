@@ -49,6 +49,7 @@ dependencies:
   json_annotation: ^4.3.0
   http: ^0.13.4
   firebase_database: ^8.1.0
+  provider: ^5.0.0
   
   
 

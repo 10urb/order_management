@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print, prefer_typing_uninitialized_variables
 
+import 'dart:collection';
 import 'dart:convert';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
@@ -33,14 +34,13 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
 
     var response = await service.getAll();
     if (response.statusCode == 200) {
-      var jsonModel = CustomerModel.fromJson(jsonDecode(response.body));
+      Map<String, dynamic> jsonModel = jsonDecode(response.body);
 
-      for (var item in jsonModel.value!) {
-        setState(() {
-          customerModelValueList.add(item);
-        });
-      }
-      print(customerModelValueList.length);
+      setState(() {
+        customerValueList.addAll(jsonModel);
+      });
+
+      print(customerValueList.length);
     } else {
       return response.statusCode;
     }
@@ -170,12 +170,14 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
       height: 60,
       child: DropdownSearch(
         validator: _validator.requiredValidator,
-        items: customerModelValueList
-            .map((element) => element.companyName.toString())
+        items: customerValueList.values
+            .map((element) => element["value"]["companyName"].toString())
             .toList(),
         mode: Mode.MENU,
         showSearchBox: true,
-        onChanged: (value) => _newCompanyName = value.toString(),
+        onChanged: (value) {
+          _newCompanyName = value.toString();
+        },
         dropdownSearchDecoration: InputDecoration(
             hintText: InStrings.MUSTERI_SECINIZ,
             border:
@@ -215,7 +217,6 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
                 buildTreeClassChooseDropdownField(),
                 widthTextFormField(),
                 heightTextFormField(),
-                decimeterTextFormField(),
                 ElevatedButton(
                   child: Text(InStrings.EKLE),
                   style: InStyle.successElevatedButtonStyle,
@@ -234,15 +235,14 @@ class _CreateReceiptScreenState extends State<CreateReceiptScreen> {
                           thickness: double.tryParse(_newThickness),
                           width: double.tryParse(_newWidth),
                           treeClass: _newTreeClass);
-
+                      Toastr.buildSuccessToast(
+                          "Eklendi. Toplam Kalem Sayısı: " +
+                              (_receiptValueList.length + 1).toString());
                       setState(() {
                         _receiptValueList.add(newReceiptValue);
                         print(_receiptValueList.length);
                       });
                       if (arrayLength > _receiptValueList.length) {
-                        Toastr.buildSuccessToast(
-                            "Eklendi. Toplam Kalem Sayısı: " +
-                                _receiptValueList.length.toString());
                         totalDecimeterMath();
                         dispose();
                       }

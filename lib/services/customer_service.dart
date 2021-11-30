@@ -19,7 +19,9 @@ class CustomerService {
   Future<http.Response> addPost(CustomerModel customerModel) async {
     const String uri =
         "https://orderandstockmanagement-default-rtdb.firebaseio.com/customers.json";
-    var response = await http.post(Uri.parse(uri), body: customerModel);
+    var toJson = jsonEncode(customerModel.toJson());
+
+    var response = await http.post(Uri.parse(uri), body: toJson);
     return response;
   }
 

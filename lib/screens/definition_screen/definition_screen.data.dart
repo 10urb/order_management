@@ -1,11 +1,8 @@
 part of 'definition_screen.dart';
 
-CustomerService service = CustomerService();
-List<CustomerValue> newValueList = [];
+CustomerService _service = CustomerService();
 
 Validators _validator = Validators();
-
-late CustomerModel newCustomerModel;
 
 var _formKey = GlobalKey<FormState>();
 
@@ -21,7 +18,8 @@ var _newCompanyName,
     _newTown,
     _newTaxNumber,
     _newThickness,
-    _newTreeClass;
+    _newTreeClass,
+    _newCreatedAt = DateTime.now().toString();
 
 TextFormField relatedPersonTextFormField() {
   return TextFormField(

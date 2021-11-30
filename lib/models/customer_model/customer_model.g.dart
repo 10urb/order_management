@@ -8,14 +8,16 @@ part of 'customer_model.dart';
 
 CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) =>
     CustomerModel(
-      value: (json['customerValue'] as List<dynamic>?)
-          ?.map((e) => CustomerValue.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      value: json['value'] == null
+          ? null
+          : CustomerValue.fromJson(json['value'] as Map<String, dynamic>),
+      object: json['object'],
     );
 
 Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) =>
     <String, dynamic>{
-      'customerValue': instance.value,
+      'object': instance.object,
+      'value': instance.value,
     };
 
 CustomerValue _$CustomerValueFromJson(Map<String, dynamic> json) =>

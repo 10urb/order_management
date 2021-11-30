@@ -1,9 +1,10 @@
 part of 'create_receipt_screen.dart';
 
-List<CustomerValue> customerModelValueList = [];
+HashMap<String, dynamic> customerValueList = HashMap<String, dynamic>();
 List<double> _thicknessModelList = [];
 List<double> _treeClassModelList = [];
 List<ReceiptValue> _receiptValueList = [];
+List<CustomerValue> customerModelList = [];
 var _formKey = GlobalKey<FormState>();
 Validators _validator = Validators();
 
@@ -23,7 +24,8 @@ var _newCompanyName,
     _newWidth,
     _newHeight,
     _newPartyNumber,
-    _newDecimeter;
+    _newDecimeter,
+    customerId;
 
 TextFormField widthTextFormField() {
   return TextFormField(
@@ -99,7 +101,8 @@ AppBar buildAppbar() {
               Toastr.buildNotifyToast("Kaydetmek İçin Basılı Tutun");
             },
             onLongPress: () {
-              putReceitp();
+              // putReceitp();
+              postReceitp();
               Toastr.buildSuccessToast("Uzun basıldı");
             },
             child: Text(InStrings.KAYDET_VE_YAZDIR)),
@@ -113,6 +116,17 @@ Future putReceitp() async {
   var response = await service.addPut(_receiptModel);
   if (response.statusCode == 200) {
     Toastr.buildSuccessToast("İşlem başarılı");
+  } else {
+    Toastr.buildErrorToast("Bir sorun oluştu" + response.statusCode.toString());
+  }
+}
+
+Future postReceitp() async {
+  ReceiptService service = ReceiptService();
+  var response = await service.addPost(_receiptModel);
+  if (response.statusCode == 200) {
+    Toastr.buildSuccessToast("İşlem başarılı");
+    var jsonModel = jsonDecode(response.body);
   } else {
     Toastr.buildErrorToast("Bir sorun oluştu" + response.statusCode.toString());
   }
